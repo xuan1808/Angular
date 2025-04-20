@@ -1,0 +1,53 @@
+<section class="middle">
+  <div class="container" id="main">
+    <div id="brand_list" class="listnhasx">
+      <h2>
+        Add Products
+      </h2>
+      <form (ngSubmit)="onSubmit()" [formGroup]="productForm">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name" aria-describedby="namehelpId">
+        </div>
+        <div *ngIf="!productForm.get('name')?.valid && productForm.get('name')?.touched">
+          <div class="text-danger">Tên sản phẩm tối thiểu 6 kí tự</div>
+        </div>
+        <div class="mb-3">
+          <label for="brand_id" class="form-label">Category</label>
+          <select id="category" class="form-control border-primary"  formControlName="category" >
+            <option value="1" *ngFor="let category of categories">{{category.name}}</option>
+           
+            
+                </select>
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Image</label>
+        <input type="text" class="form-control" name="image" id="image" formControlName="image"
+          aria-describedby="namehelpId">
+      </div>
+      <div *ngIf="!productForm.get('image')?.valid && productForm.get('image')?.touched">
+        <div class="text-danger"> hình Không được rỗng</div>
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Price</label>
+        <input type="text" class="form-control" name="price" id="price" formControlName="price"
+          aria-describedby="namehelpId">
+      </div>
+      <div *ngIf="!productForm.get('price')?.valid && productForm.get('price')?.touched">
+        <div class="text-danger"> Giá Không được rỗng</div>
+      </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Desc</label>
+          <input type="text" class="form-control" name="desc" id="desc" formControlName="desc"
+            aria-describedby="namehelpId">
+        </div>
+        <div *ngIf="!productForm.get('desc')?.valid && productForm.get('desc')?.touched">
+          <div class="text-danger">Không được rỗng</div>
+        </div>
+        
+      
+        <button class="btn btn-primary px-3" type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+</section>
